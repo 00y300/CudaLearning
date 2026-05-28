@@ -1,7 +1,7 @@
 // ch7_blur.cu — load image, apply Gaussian blur on GPU, save PNG
 //
-// Build: nvcc -O2 -arch=sm_75 ch7_blur.cu -o ch7_blur
-// Run:   ./ch7_blur f1Car.jpg output_blur.png
+// Build: cmake -B build -S . && cmake --build build --target 07-tiled-convolution
+// Run:   ./build/07-tiled-convolution assets/f1Car.jpg assets/output_blur.png
 //
 // Image credit: f1Car.jpg from Unsplash (https://unsplash.com/photos/a-race-car-is-driving-on-the-track-W0haDrVTW58)
 
@@ -116,6 +116,7 @@ int main(int argc, char** argv) {
         // Upload channel into buffer A
         CUDA_CHECK(cudaMemcpy(d_a, src[c], N*sizeof(float), cudaMemcpyHostToDevice));
 
+ 
         float *in = d_a, *out = d_b;
         for (int p = 0; p < BLUR_PASSES; p++) {
             conv2d_tiled<<<grid, block>>>(in, out, H, W);
