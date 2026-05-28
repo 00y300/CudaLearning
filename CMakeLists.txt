@@ -7,7 +7,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CXX_STANDARD 17)
 
-
 # stb (header-only image lib) --------------------------------------------
 include(FetchContent)
 FetchContent_Declare(
@@ -26,22 +25,19 @@ target_include_directories(stb_image_write INTERFACE ${stb_SOURCE_DIR})
 # Chapter targets --------------------------------------------------------
 function(add_chapter name)
     add_executable(${name} ${ARGN})
-    target_link_libraries(${name} PRIVATE CUDA::cudart stb_image stb_image_write)
-    target_compile_definitions(${name} PRIVATE ASSETS_DIR="${CMAKE_SOURCE_DIR}/assets")
+    target_link_libraries(
+        ${name}
+        PRIVATE CUDA::cudart stb_image stb_image_write
+    )
+    target_compile_definitions(
+        ${name}
+        PRIVATE ASSETS_DIR="${CMAKE_SOURCE_DIR}/assets"
+    )
     set_target_properties(${name} PROPERTIES CUDA_ARCHITECTURES 120)
 endfunction()
 
-# add_chapter(01-vector-add 01-vector-add/vector-add.cu)
-# add_chapter(02-matrix-multiply 02-matrix-multiply/matrix-multiply.cu)
 add_chapter(07-tiled-convolution 07-tiled-convolution/tiled-convolution.cu)
 add_chapter(08-3d-stencil 08-3d-stencil/3d-stencil.cu)
-# add_chapter(09-histogram 09-histogram/histogram.cu)
-# add_chapter(10-reduction 10-reduction/reduction.cu)
-# add_chapter(11-prefix-sum 11-prefix-sum/prefix-sum.cu)
-# add_chapter(12-stream-compaction 12-stream-compaction/stream-compaction.cu)
-# add_chapter(13-parallel-merge 13-parallel-merge/parallel-merge.cu)
-# add_chapter(14-radix-sort 14-radix-sort/radix-sort.cu)
-# add_chapter(15-tiled-gemm 15-tiled-gemm/tiled-gemm.cu)
 
 # .clangd generation -----------------------------------------------------
 get_filename_component(_nvcc_bin "${CUDAToolkit_NVCC_EXECUTABLE}" DIRECTORY)
