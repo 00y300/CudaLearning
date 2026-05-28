@@ -3,9 +3,9 @@
 | Chapter         | Topic            | Kernel                      | Current State | Goal                                   | New Concept                                       |
 | --------------- | ---------------- | --------------------------- | ------------- | -------------------------------------- | ------------------------------------------------- |
 | **Foundation**  | Thread hierarchy | Vector Add                  | ✅ Done       | Understand grid/block/thread indexing  | `blockIdx`, `threadIdx`, bounds check             |
-| **Foundation+** | 2D indexing      | **Matrix Multiply (naive)** | ▶ Now         | Map 2D output to 2D thread grid        | Row/col indexing, dot product loop                |
+| **Foundation+** | 2D indexing      | **Matrix Multiply (naive)** | ⬜            | Map 2D output to 2D thread grid        | Row/col indexing, dot product loop                |
 | **Ch 7**        | Convolution      | Tiled Convolution           | ✅ Done       | Load input+halo into shared memory     | `__shared__`, `__syncthreads()`, halo cells       |
-| **Ch 8**        | Stencil          | 3D Stencil                  | ⬜            | Extend tiling to 3 dimensions          | 3D grids, ghost cells, register caching           |
+| **Ch 8**        | Stencil          | 3D Stencil                  | ✅ Done       | Extend tiling to 3 dimensions          | 3D grids, ghost cells, register caching           |
 | **Ch 9**        | Histogram        | Privatized Histogram        | ⬜            | Eliminate atomic contention            | `atomicAdd`, per-block privatization, merge       |
 | **Ch 10**       | Reduction        | Parallel Reduction          | ⬜            | Halve active threads each step         | Tree reduction, warp shuffle (`__shfl_down_sync`) |
 | **Ch 11**       | Scan             | Prefix Sum                  | ⬜            | All-prefix-sums in O(n) work           | Kogge-Stone, Brent-Kung, work efficiency          |
@@ -21,8 +21,3 @@
 - **Ch 11 → Ch 12/13**: filter and merge both use scan as a sub-primitive
 - **Ch 15**: closing the loop on matmul shows how far you've come — naive vs tiled vs tensor-core is a story recruiters understand immediately
 
-## Recruiter narrative
-
-Each kernel tells one chapter of the same story:
-
-> _"I started with naive global-memory kernels, identified the bottleneck with Nsight, applied the right pattern (tiling / atomics / warp intrinsics), and measured the speedup."_
