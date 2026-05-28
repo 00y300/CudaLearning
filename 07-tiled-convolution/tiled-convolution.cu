@@ -60,8 +60,8 @@ __global__ void conv2d_tiled(const float* in, float* out, int H, int W) {
 }
 
 int main(int argc, char** argv) {
-    const char* in_path  = (argc > 1) ? argv[1] : "f1Car.jpg";
-    const char* out_path = (argc > 2) ? argv[2] : "output_blur.png";
+    const char* in_path  = (argc > 1) ? argv[1] : "assets/f1Car.jpg";
+    const char* out_path = (argc > 2) ? argv[2] : "assets/output_blur.png";
 
     // Load image (force RGB)
     int W, H, ch;
