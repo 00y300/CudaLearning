@@ -8,7 +8,7 @@ This repo was created to reinforce my understanding of [Programming Massively Pa
 | Chapter | Description                          |
 | ------- | ------------------------------------ |
 | 07      | Tiled 2D convolution (Gaussian blur) |
-| 08      | 3D stencil computation               |
+| 08      | 3D stencil (7-point Laplacian)       |
 | 09      | Parallel histogram                   |
 | 10      | Parallel reduction                   |
 | 11      | Prefix sum (scan)                    |
@@ -36,5 +36,6 @@ cmake --build build
 
 ## Requirements
 
-- NVIDIA GPU (compute capability 8.0+)
-- Nix with flakes enabled (or CUDA Toolkit 12.x + CMake 3.18+ for manual setup)
+- NVIDIA GPU (compute capability 12.0+) — tested on RTX 5090 (Blackwell, sm_120)
+- CUDA Toolkit 13.0
+- Nix with flakes enabled (or CUDA Toolkit 13.0 + CMake 3.18+ for manual setup)
