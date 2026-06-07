@@ -5,10 +5,7 @@
       "label": "CMake: Clean",
       "type": "shell",
       "command": "rm",
-      "args": [
-        "-rf",
-        "${workspaceFolder}/build"
-      ],
+      "args": ["-rf", "${workspaceFolder}/build"],
       "problemMatcher": []
     },
     {
@@ -38,9 +35,26 @@
       "label": "CMake: Build",
       "type": "shell",
       "command": "cmake",
+      "args": ["--build", "${workspaceFolder}/build"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "CMake: Build (Release)",
+      "type": "shell",
+      "command": "cmake",
       "args": [
-        "--build",
-        "${workspaceFolder}/build"
+        "-B",
+        "${workspaceFolder}/build",
+        "-S",
+        "${workspaceFolder}",
+        "-DCMAKE_BUILD_TYPE=Release"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -53,41 +67,20 @@
     },
     {
       "label": "CMake: Configure & Build",
-      "dependsOn": [
-        "CMake: Configure",
-        "CMake: Build"
-      ],
-      "dependsOrder": "sequence",
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-    },
-    {
-      "label": "CMake: Build Release",
+      "description": "Run cmake --build and show output in the terminal",
       "type": "shell",
       "command": "cmake",
-      "args": [
-        "--build",
-        "${workspaceFolder}/build",
-        "--config",
-        "Release"
-      ],
+      "args": ["--build", "${workspaceFolder}/build"],
       "options": {
         "cwd": "${workspaceFolder}"
       },
       "problemMatcher": [],
+      "dependsOrder": "sequence",
+      "dependsOn": ["CMake: Configure"],
       "group": {
         "kind": "build",
-        "isDefault": false
+        "isDefault": true
       }
-    },
-    {
-      "label": "Run Program",
-      "type": "shell",
-      "command": "${workspaceFolder}/build/main",
-      "problemMatcher": []
     }
   ]
 }

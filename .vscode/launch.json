@@ -2,12 +2,35 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "🐉 C++ Build and Debug",
+      "name": "🐉 Debug: 07 - Tiled Convolution",
       "type": "cuda-gdb",
       "request": "launch",
-      "program": "${workspaceFolder}/build/main",
+      "program": "${workspaceFolder}/build/07-tiled-convolution",
       "gdb": "cuda-gdb",
-      "args": [],
+      "args": [
+        "${workspaceFolder}/assets/f1Car.jpg",
+        "${workspaceFolder}/assets/output_blur.png"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: Configure & Build"
+    },
+    {
+      "name": "🐉 Debug: 08 - 3D Stencil",
+      "type": "cuda-gdb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/08-3d-stencil",
+      "gdb": "cuda-gdb",
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: Configure & Build"
+    },
+    {
+      "name": "🐉 Debug: 09 - Histogram",
+      "type": "cuda-gdb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/09-histogram",
+      "gdb": "cuda-gdb",
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "CMake: Configure & Build"

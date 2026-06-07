@@ -88,7 +88,7 @@
 
           # Expose OpenDebugAD7 directly so nvim-dap doesn't have to hunt for it.
           # Path within the cpptools extension is stable: extension/debugAdapters/bin/OpenDebugAD7
-          # export OPENDEBUGAD7_PATH="${cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7"
+          export OPENDEBUGAD7_PATH="${cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7"
 
           # Sanity check at shell entry — fail loud if the layout changed
           if [ ! -x "$OPENDEBUGAD7_PATH" ]; then

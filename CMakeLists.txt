@@ -38,6 +38,7 @@ endfunction()
 
 add_chapter(07-tiled-convolution 07-tiled-convolution/tiled-convolution.cu)
 add_chapter(08-3d-stencil 08-3d-stencil/3d-stencil.cu)
+add_chapter(09-histogram 09-histogram/histogram.cu)
 
 # .clangd generation -----------------------------------------------------
 get_filename_component(_nvcc_bin "${CUDAToolkit_NVCC_EXECUTABLE}" DIRECTORY)
