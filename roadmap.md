@@ -14,7 +14,7 @@
 | **Ch 14**       | Sorting          | Radix Sort                  | ⬜            | Full GPU sort pipeline                 | Multi-pass digit sort, scan as primitive          |
 | **Ch 15**       | MatMul Optimised | Tiled GEMM                  | ⬜            | Return to MatMul — now with everything | Register tiling, double buffering, tensor cores   |
 
-## Why this order matters
+## Why This Order Matters
 
 - **Foundation → Ch 7**: shared memory pays off most when reuse is high — matmul and convolution both reuse inputs O(N) times
 - **Ch 10 → Ch 11**: scan is built on reduction; do them back to back

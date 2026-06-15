@@ -34,6 +34,16 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "CMake: Configure & Build"
+    },
+    {
+      "name": "🐉 Debug: 10 - Reduction",
+      "type": "cuda-gdb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/10-reduction",
+      "gdb": "cuda-gdb",
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: Configure & Build"
     }
   ]
 }
