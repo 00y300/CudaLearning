@@ -44,6 +44,16 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "CMake: Configure & Build"
+    },
+    {
+      "name": "🐉 Debug: 11 - prefix_sum",
+      "type": "cuda-gdb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/11-prefix-sum",
+      "gdb": "cuda-gdb",
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: Configure & Build"
     }
   ]
 }

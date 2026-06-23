@@ -199,12 +199,14 @@ int main() {
 
   // Grid-stride grid is sized to the DEVICE, not the data. A few dozen blocks
   // per SM keeps every SM saturated while letting each thread loop over many
-  // elements. This is the configuration that makes the grid-stride loop pay off.
+  // elements. This is the configuration that makes the grid-stride loop pay
+  // off.
   int numSMs = 0;
   cudaDeviceGetAttribute(&numSMs, cudaDevAttrMultiProcessorCount, 0);
   int gsGridSize = numSMs * 32;
-  printf("Device SMs: %d   grid-stride grid: %d blocks (vs %d for the rest)\n\n",
-         numSMs, gsGridSize, gridSize);
+  printf(
+      "Device SMs: %d   grid-stride grid: %d blocks (vs %d for the rest)\n\n",
+      numSMs, gsGridSize, gridSize);
 
   cudaMalloc(&d_inputArray, ARRAYSIZE * sizeof(float));
   cudaMalloc(&d_final_up, sizeof(float));

@@ -40,6 +40,7 @@ add_chapter(07-tiled-convolution 07-tiled-convolution/tiled-convolution.cu)
 add_chapter(08-3d-stencil 08-3d-stencil/3d-stencil.cu)
 add_chapter(09-histogram 09-histogram/histogram.cu)
 add_chapter(10-reduction 10-reduction/reduction_sum.cu)
+add_chapter(11-prefix-sum 11-prefix-sum/prefix_sum.cu)
 
 # .clangd generation -----------------------------------------------------
 get_filename_component(_nvcc_bin "${CUDAToolkit_NVCC_EXECUTABLE}" DIRECTORY)

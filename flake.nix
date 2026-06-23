@@ -24,7 +24,7 @@
       cudaPkgs = with cudaPackages; [
         cuda_nvcc
         cuda_cudart
-        cuda_cccl
+        cccl
         cuda_gdb
         cuda_cuobjdump
         cuda_nvdisasm
