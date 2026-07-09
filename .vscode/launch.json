@@ -54,6 +54,17 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "CMake: Configure & Build"
+    },
+    {
+      "name": "🐉 Debug: 12 - Stream Compaction",
+      "type": "cuda-gdb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/12-stream-compaction",
+      "gdb": "cuda-gdb",
+      "args": ["1048576"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: Configure & Build"
     }
   ]
 }
